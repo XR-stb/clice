@@ -18,6 +18,8 @@ Beyond performance, clice provides instantiation-aware template processing, supp
 
 ## Getting started
 
+### Option 1: Binary Installation
+
 Download the latest `clice` binary from the [releases page](https://github.com/clice-io/clice/releases) and install the [vscode extension](https://marketplace.visualstudio.com/items?itemName=ykiko.clice-vscode). Then, add the following configuration to your `.vscode/settings.json` file:
 
 ```jsonc
@@ -30,8 +32,35 @@ Download the latest `clice` binary from the [releases page](https://github.com/c
 }
 ```
 
+### Option 2: Docker
+
+You can run clice using Docker with either pre-built binaries or by building from source:
+
+```bash
+# Option A: Using pre-built version (recommended)
+# Create Dockerfile.prebuilt (see Docker guide for details)
+docker build -f Dockerfile.prebuilt -t clice:prebuilt .
+docker run -i --rm \
+  -v /path/to/your/project:/workspace \
+  -w /workspace \
+  clice:prebuilt --mode=pipe
+
+# Option B: Build from source
+docker build -t clice:latest .
+docker run -i --rm \
+  -v /path/to/your/project:/workspace \
+  -w /workspace \
+  clice:latest --mode=pipe
+```
+
+For detailed Docker usage instructions, see the [Docker guide](https://clice.io/guide/docker).
+
 > [!NOTE]
 > As an early version, please do not use it in a production environment. Crashes are expected, and we welcome you to submit issues.
+
+## Quick Start Guide
+
+For detailed setup instructions, configuration options, and troubleshooting tips, see our comprehensive [**Usage Guide**](USAGE.md).
 
 ## Documentation
 

@@ -1,0 +1,19 @@
+FROM ubuntu:24.04
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install pre-built clice
+RUN wget -O /tmp/clice.tar.xz https://github.com/clice-io/clice/releases/download/v0.1.0-alpha.1/clice-x86_64-linux-gnu.tar.xz \
+    && cd /tmp \
+    && tar -xf clice.tar.xz \
+    && cp -r clice /opt/ \
+    && chmod +x /opt/clice/clice \
+    && ln -s /opt/clice/clice /usr/local/bin/clice \
+    && rm -rf /tmp/clice*
+
+WORKDIR /workspace
+ENTRYPOINT ["clice"]
