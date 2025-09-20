@@ -87,6 +87,9 @@ async::Task<json::Value> Server::on_initialize(proto::InitializeParams params) {
     /// FIXME: Resolve to make hint clickable.
     capabilities.inlayHintProvider.resolveProvider = false;
 
+    /// Definition
+    capabilities.definitionProvider = true;
+
     co_return json::serialize(result);
 }
 

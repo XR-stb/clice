@@ -216,6 +216,8 @@ private:
 
     auto on_inlay_hint(proto::InlayHintParams params) -> Result;
 
+    auto on_definition(proto::DefinitionParams params) -> Result;
+
 private:
     /// The current request id.
     std::uint32_t server_request_id = 0;

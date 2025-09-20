@@ -116,6 +116,7 @@ Server::Server() {
     register_callback<&Server::on_folding_range>("textDocument/foldingRange");
     register_callback<&Server::on_semantic_token>("textDocument/semanticTokens/full");
     register_callback<&Server::on_inlay_hint>("textDocument/inlayHint");
+    register_callback<&Server::on_definition>("textDocument/definition");
 }
 
 async::Task<> Server::on_receive(json::Value value) {

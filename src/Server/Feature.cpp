@@ -10,7 +10,6 @@
 #include "Feature/FoldingRange.h"
 #include "Feature/SemanticToken.h"
 #include "Feature/InlayHint.h"
-
 namespace clice {
 
 auto Server::on_completion(proto::CompletionParams params) -> Result {

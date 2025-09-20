@@ -172,6 +172,9 @@ struct ServerCapabilities {
     /// The server provides inlay hints.
     InlayHintOptions inlayHintProvider;
 
+    /// The server provides go to definition support.
+    bool definitionProvider;
+
     /// The server has support for pull model diagnostics.
     /// FIXME: DiagnosticOptions diagnosticProvider;
 
